@@ -1,9 +1,5 @@
 const Product = require("../models/product");
 
-async function getAllProductsStatic(req, res) {
-  const products = await Product.find().sort(null);
-  res.status(200).json({ products, nbHits: products.length });
-}
 async function getAllProducts(req, res) {
   const { featured, company, name, sort, fields, numericFilters } = req.query;
   const queryObject = {};
@@ -60,5 +56,4 @@ async function getAllProducts(req, res) {
 
 module.exports = {
   getAllProducts,
-  getAllProductsStatic,
 };
